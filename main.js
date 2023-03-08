@@ -1,7 +1,9 @@
 const container = document.querySelector('.grid-container');
 const newGridBtn = document.querySelector('#new-grid-btn');
+const colorPicker = document.querySelector('#color-picker');
 
 let isDrawing = false;
+let selectedColor = '#000000';
 
 function createGrid(size) {
   container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -24,25 +26,20 @@ function handleMouseUp() {
 function handleMouseOver(event) {
   if (isDrawing) {
     const target = event.target;
-    target.style.backgroundColor = getRandomColor();
+    target.style.backgroundColor = selectedColor;
   }
-}
-
-function getRandomColor() {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
 }
 
 function handleNewGrid() {
-  let size = prompt("Enter the number of squares per side for the new grid (maximum 100):");
+  let size = prompt('Enter the number of squares per side for the new grid (maximum 100):');
   if (size > 100) {
     size = 100;
   }
   createGrid(size);
+}
+
+function handleColorChange() {
+  selectedColor = colorPicker.value;
 }
 
 createGrid(16);
@@ -52,3 +49,4 @@ container.addEventListener('mouseup', handleMouseUp);
 container.addEventListener('mouseover', handleMouseOver);
 
 newGridBtn.addEventListener('click', handleNewGrid);
+colorPicker.addEventListener('input', handleColorChange);
