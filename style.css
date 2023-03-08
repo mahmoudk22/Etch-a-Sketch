@@ -1,0 +1,40 @@
+.grid-container {
+    display: grid;
+    width: max-content;
+    grid-template-columns: repeat(16, auto); 
+    margin: 0 auto; 
+  }
+
+.grid-item {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+    transition: background-color 0.2 ease;
+  }
+
+.grid-item:hover {
+    background-color: black;
+}
+
+
+.header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#new-grid-btn {
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#new-grid-btn:hover {
+    background-color: #3e8e41;
+}
